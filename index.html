@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <title>AI Nhận Diện Vật Cản & Cảnh Báo</title>
+
+  <!-- p5.js -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.min.js"></script>
+  <!-- ml5.js -->
+  <script src="https://cdn.jsdelivr.net/npm/ml5@0.12.2/dist/ml5.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f8f9fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 400px;
+    }
+
+    #canvas-container {
+      margin-top: 10px;
+    }
+
+    #canvas-container canvas {
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .info-card {
+      margin-top: 15px;
+      padding: 15px 20px;
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      text-align: left;
+    }
+
+    .info-card h2 {
+      margin-top: 0;
+      color: #007bff;
+    }
+
+    .info-card p {
+      margin: 5px 0;
+      color: #555;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>AI Nhận Diện Vật Cản & Cảnh Báo</h1>
+    <button id="start-btn">Bắt đầu nhận diện</button>
+
+    <div id="canvas-container"></div>
+
+    <div class="info-card" id="nutrient-card">
+      <h2 id="nutrient-title">Chọn vật để kiểm tra</h2>
+      <p id="nutrient-text"></p>
+      <p id="benefit-text"></p>
+    </div>
+  </div>
+
+  <script src="Tech.js"></script>
+</body>
+
+</html>
