@@ -23,6 +23,30 @@
       min-height: 100vh;
     }
 
+    #start-btn {
+      padding: 12px 22px;
+      font-size: 16px;
+      font-weight: 600;
+      color: white;
+      background: linear-gradient(135deg, #0d6efd, #3a8bff);
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.25s ease;
+      box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+    }
+
+    #start-btn:hover {
+      background: linear-gradient(135deg, #0b5ed7, #3a7cff);
+      box-shadow: 0 6px 16px rgba(0, 123, 255, 0.4);
+      transform: translateY(-2px);
+    }
+
+    #start-btn:active {
+      transform: scale(0.96);
+      box-shadow: 0 3px 10px rgba(0, 123, 255, 0.3);
+    }
+
     .container {
       text-align: center;
       max-width: 400px;
@@ -65,10 +89,9 @@
 
     <div id="canvas-container"></div>
 
-    <div class="info-card" id="nutrient-card">
-      <h2 id="nutrient-title">Chọn vật để kiểm tra</h2>
-      <p id="nutrient-text"></p>
-      <p id="benefit-text"></p>
+    <div class="info-card" id="object-card">
+      <p id="object-desc"></p>
+      <p id="object-warning"></p>
     </div>
   </div>
 
@@ -76,3 +99,4 @@
 </body>
 
 </html>
+
