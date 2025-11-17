@@ -90,41 +90,45 @@ loadVoices();   // chạy lần đầu
 function speak(text) {
   const utter = new SpeechSynthesisUtterance(text);
   utter.lang = "vi-VN";
+
+  // Tìm voice tiếng Việt
+  const vnVoice = voices.find(v => v.lang === "vi-VN");
+  if (vnVoice) {
+    utter.voice = vnVoice;
+  }
+
   utter.rate = 1;
   utter.pitch = 1;
 
   speechSynthesis.cancel();
   speechSynthesis.speak(utter);
 }
-
 function updateInfo(label) {
-  const data = {
-    "Lan can, rào chắn": {
-      text: "Phía trước là vật chắn.",
-      warn: "Cảnh báo! Có vật chắn phía trước, không tiến thêm."
-    },
-    "Thùng rác": {
-      text: "Có thùng rác phía trước.",
-      warn: "Chú ý! Có thùng rác ngay trước mặt."
-    },
-    "Cột điện": {
-      text: "Có cột điện phía trước.",
-      warn: "Cẩn thận! Có cột điện ngay trước bạn."
-    },
-  };
+const data = {
+  "Lan can, rào chắn": {
+    text: "Phía trước có vật chắn.",
+    warn: "Cảnh báo! Phía trước có vật chắn, bạn không nên đi tiếp."
+  },
+  "Thùng rác": {
+    text: "Phía trước có thùng rác.",
+    warn: "Chú ý! Có thùng rác trước mặt bạn."
+  },
+  "Cột điện": {
+    text: "Phía trước có cột điện.",
+    warn: "Cẩn thận! Cột điện đang ở ngay trước bạn."
+  },
+};
 
   if (data[label]) {
-    document.getElementById("nutrient-title").innerText = label;
-    document.getElementById("nutrient-text").innerText = data[label].text;
-    document.getElementById("benefit-text").innerText = data[label].warn;
+    document.getElementById("object-desc").innerText = data[label].text;
+    document.getElementById("object-warning").innerText = data[label].warn;
 
     if (label !== lastLabel) {
       speak(data[label].warn);
       lastLabel = label;
     }
   } else {
-    document.getElementById("nutrient-title").innerText = "Đang nhận diện...";
-    document.getElementById("nutrient-text").innerText = "";
-    document.getElementById("benefit-text").innerText = "";
+    document.getElementById("object-desc").innerText = "";
+    document.getElementById("object-warning").innerText = "";
   }
 }
